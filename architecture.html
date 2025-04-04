@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture</title>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+/* Body and Background */
+body {
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    width: 100%;
+    background-color: #00b894;
+    color: white;
+    padding: 20px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav .back-button {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+}
+
+nav .page-title {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Architecture Section */
+.architecture-section {
+    padding: 50px;
+    text-align: center;
+}
+
+.architecture-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00b894;
+    margin-bottom: 30px;
+}
+
+.architecture-gallery {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.architecture-item {
+    width: 22%;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.architecture-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.architecture-item h3 {
+    padding-top: 2vh;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #555;
+}
+
+.architecture-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.architecture-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.modal-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .architecture-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .architecture-item {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+    </style>
+    <!-- <link rel="stylesheet" href="architecture.css"> -->
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="back-button">← Back to Home</a>
+            <h1 class="page-title">Indian Architecture</h1>
+        </nav>
+    </header>
+
+    <main>
+        <section class="architecture-section">
+            <h2>Marvel at India's Architectural Wonders</h2>
+            <div class="architecture-gallery">
+                <div class="architecture-item" onclick="openModal('suntemple')">
+                    <img src="images/sun.jpg" alt="Sun Temple, Konark">
+                    <h3>Sun Temple, Konark</h3>
+                </div>
+                <div class="architecture-item" onclick="openModal('qutubminar')">
+                    <img src="images/qutub minar.jpg" alt="Qutub Minar">
+                    <h3>Qutub Minar</h3>
+                </div>
+                <div class="architecture-item" onclick="openModal('hampi')">
+                    <img src="images/hampi.jpg" alt="Hampi">
+                    <h3>Hampi Temples</h3>
+                </div>
+                <div class="architecture-item" onclick="openModal('lotustemple')">
+                    <img src="images/lotus.jpg" alt="Lotus Temple">
+                    <h3>Lotus Temple</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Section -->
+        <div id="architectureModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3 id="architectureTitle">Title</h3>
+                <p id="architectureDescription">Description of the architecture goes here.</p>
+                <img id="architectureImage" src="images/suntemple.jpg" alt="Architecture Image">
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Function to open the modal with architecture information
+function openModal(architecture) {
+    const modal = document.getElementById('architectureModal');
+    const modalTitle = document.getElementById('architectureTitle');
+    const modalDescription = document.getElementById('architectureDescription');
+    const modalImage = document.getElementById('architectureImage');
+
+    if (architecture === 'suntemple') {
+        modalTitle.textContent = "Sun Temple, Konark";
+        modalDescription.textContent = "The Sun Temple in Konark, Odisha, is an architectural masterpiece dedicated to the Sun God.";
+        modalImage.src = "https://img.veenaworld.com/wp-content/uploads/2021/03/Konark-Sun-Temple-History-Architecture-and-Information.jpeg?imwidth=640";
+    } else if (architecture === 'qutubminar') {
+        modalTitle.textContent = "Qutub Minar";
+        modalDescription.textContent = "The Qutub Minar is a UNESCO World Heritage Site located in Delhi.";
+        modalImage.src = "https://thrillingtravel.in/wp-content/uploads/2019/10/Delhi-Qutub-Minar.jpg";
+    } else if (architecture === 'hampi') {
+        modalTitle.textContent = "Hampi Temples";
+        modalDescription.textContent = "Hampi is an ancient village in Karnataka known for its temples and ruins.";
+        modalImage.src = "images/hampi.jpg";
+    } else if (architecture === 'lotustemple') {
+        modalTitle.textContent = "Lotus Temple";
+        modalDescription.textContent = "The Lotus Temple in Delhi is a Bahi House of Worship known for its flower-like shape.";
+        modalImage.src = "https://media.gettyimages.com/id/533189605/photo/lotus-temple.jpg?s=612x612&w=gi&k=20&c=KQYa0vtidGoVsjstJ5e9i_0ZCAiEcD_ZYpkE6cCDtVs=";
+    }
+
+    modal.style.display = "block"; // Show modal
+}
+
+// Function to close the modal
+function closeModal() {
+    const modal = document.getElementById('architectureModal');
+    modal.style.display = "none"; // Hide modal
+}
+
+// Close the modal if the user clicks outside of the modal content
+window.onclick = function (event) {
+    const modal = document.getElementById('architectureModal');
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};
+
+    </script>
+
+</body>
+
+</html>

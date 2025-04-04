@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Cuisine</title>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+/* Body and Background */
+body {
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    width: 100%;
+    background-color: #00b894;
+    color: white;
+    padding: 20px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav .back-button {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+}
+
+nav .page-title {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Cuisine Section */
+.cuisine-section {
+    padding: 50px;
+    text-align: center;
+}
+
+.cuisine-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00b894;
+    margin-bottom: 30px;
+}
+
+.cuisine-gallery {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cuisine-item {
+    width: 22%;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cuisine-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.cuisine-item h3 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #333;
+}
+
+.cuisine-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cuisine-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.modal-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .cuisine-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cuisine-item {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+    </style>
+    <!-- <link rel="stylesheet" href="cuisine.css"> -->
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="back-button">← Back to Home</a>
+            <h1 class="page-title">Indian Cuisine</h1>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cuisine-section">
+            <h2>Savor the Flavors of Indian Cuisine</h2>
+            <div class="cuisine-gallery">
+                <div class="cuisine-item" onclick="openModal('biryani')">
+                    <img src="images/biryani.jpg" alt="Biryani">
+                    <h3>Biryani</h3>
+                </div>
+                <div class="cuisine-item" onclick="openModal('samosa')">
+                    <img src="images/samosa.jpg" alt="Samosa">
+                    <h3>Samosa</h3>
+                </div>
+                <div class="cuisine-item" onclick="openModal('butterChicken')">
+                    <img src="images/butter chicken.jpg" alt="Butter Chicken">
+                    <h3>Butter Chicken</h3>
+                </div>
+                <div class="cuisine-item" onclick="openModal('gulabJamun')">
+                    <img src="images/gulab jamun.jpg" alt="Gulab Jamun">
+                    <h3>Gulab Jamun</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Section -->
+        <div id="cuisineModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3 id="cuisineTitle">Dish Name</h3>
+                <p id="cuisineDescription">Description of the dish goes here.</p>
+                <img id="cuisineImage" src="images/biryani.jpg" alt="Cuisine Image">
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Function to open the modal with cuisine information
+function openModal(dish) {
+    const modal = document.getElementById('cuisineModal');
+    const modalTitle = document.getElementById('cuisineTitle');
+    const modalDescription = document.getElementById('cuisineDescription');
+    const modalImage = document.getElementById('cuisineImage');
+
+    if (dish === 'biryani') {
+        modalTitle.textContent = "Biryani";
+        modalDescription.textContent = "Biryani is a flavorful rice dish made with spices, rice, and meat or vegetables.";
+        modalImage.src = "images/biryani.jpg";
+    } else if (dish === 'samosa') {
+        modalTitle.textContent = "Samosa";
+        modalDescription.textContent = "Samosa is a popular Indian snack filled with spiced potatoes, peas, or meat.";
+        modalImage.src = "images/samosa.jpg";
+    } else if (dish === 'butterChicken') {
+        modalTitle.textContent = "Butter Chicken";
+        modalDescription.textContent = "Butter Chicken is a creamy tomato-based curry with tender chicken pieces.";
+        modalImage.src = "https://cdn.mos.cms.futurecdn.net/L5LwYrPzK5MvxTVFT9yq2d.jpg";
+    } else if (dish === 'gulabJamun') {
+        modalTitle.textContent = "Gulab Jamun";
+        modalDescription.textContent = "Gulab Jamun is a sweet dessert made of milk solids, soaked in sugar syrup.";
+        modalImage.src = "https://www.funfoodfrolic.com/wp-content/uploads/2020/07/Gulab-Jamun-Thumbnail-500x500.jpg";
+    }
+
+    modal.style.display = "block"; // Show modal
+}
+
+// Function to close the modal
+function closeModal() {
+    const modal = document.getElementById('cuisineModal');
+    modal.style.display = "none"; // Hide modal
+}
+
+// Close the modal if the user clicks outside of the modal content
+window.onclick = function (event) {
+    const modal = document.getElementById('cuisineModal');
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};
+
+    </script>
+
+</body>
+
+</html>

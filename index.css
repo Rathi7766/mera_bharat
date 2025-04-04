@@ -1,0 +1,793 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+header {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url(images/taj.jpg);
+    animation: changeimg 20s infinite linear;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes changeimg {
+    0% {
+        background-image: url(images/darjeeling3.jpg);
+
+    }
+
+    20% {
+        background-image: url(images/taj.jpg);
+    }
+
+    40% {
+        background-image: url(images/jaipur.jpg);
+    }
+
+    60% {
+        background-image: url(images/kerala2.webp);
+    }
+
+    80% {
+        background-image: url(images/delhi.webp);
+    }
+
+    100% {
+        background-image: url(images/mumbai2.jpg);
+    }
+}
+
+
+nav {
+    width: 100%;
+    height: 15vh;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0 5%;
+}
+
+nav .logo {
+    width: 25%;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+nav .menu {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav .menu a {
+    font-size: 1.25rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+#menu1:hover {
+    color: #00b894;
+}
+
+nav .menu a:first-child {
+    color: #00b894;
+}
+
+main {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+section h3 {
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+section #h3 {
+    text-shadow: 1px 1px 2px black;
+}
+
+section h1 {
+    margin: 30px 0 20px 0;
+    font-size: 55px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+section #h1 {
+    text-shadow: 2px 1px 5px black;
+}
+
+section p {
+    font-size: 25px;
+    word-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+section #p {
+    text-shadow: 1px 1px 1px black;
+}
+
+section a {
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.5s ease;
+}
+
+section .btnone {
+    background-color: #fff;
+    color: #000;
+}
+
+.btnone:hover {
+    background: #00b894;
+    color: white;
+}
+
+section .btntwo {
+    background: #00b894;
+    color: white;
+}
+
+.btntwo:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.change_content::after {
+    content: '';
+    animation: changetext 20s infinite linear;
+    color: #00b894;
+}
+
+@keyframes changetext {
+    0% {
+        content: "Darjeeling";
+    }
+
+    20% {
+        content: "Agra";
+    }
+
+    40% {
+        content: "Jaipur";
+    }
+
+    60% {
+        content: "Kerala";
+    }
+
+    80% {
+        content: "Delhi";
+    }
+
+    100% {
+        content: "Mumbai";
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 5%;
+    }
+
+    .logo h1 {
+
+        font-size: 1.3rem;
+
+    }
+
+    nav .menu {
+        width: 100%;
+        justify-content: space-evenly;
+        margin: 1rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        height: 100vh;
+    }
+
+    section h3 {
+        margin: 10vh;
+        padding-top: 13vh;
+        font-size: 28px;
+    }
+
+    section h1 {
+        font-size: 35px;
+    }
+
+    section p {
+        font-size: 20px;
+    }
+
+    section a {
+        padding: 10px 25px;
+        font-size: 12px;
+    }
+}
+
+
+#main2 {
+    height: 100vh;
+}
+
+.gallery-section {
+    text-align: center;
+    margin-top: 15vh;
+    height: 100vh;
+
+}
+
+.gallery-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #00b894;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.gallery div {
+    height: 35vh;
+    width: 25vw;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+.gallery div:hover {
+    transform: scale(1.05);
+    transition: 1s;
+}
+
+.gallery-item {
+    height: 35vh;
+    width: 25vw;
+    overflow: hidden;
+
+    position: relative;
+}
+
+.gallery-item1 {
+    background-image: url(images/darjeeling2.webp);
+}
+
+.gallery-item1 h1,
+.gallery-item2 h1,
+.gallery-item3 h1,
+.gallery-item4 h1,
+.gallery-item5 h1,
+.gallery-item6 h1 {
+    font-size: 1rem;
+    background-color: white;
+    height: 7vh;
+    width: 15vw;
+
+    margin: 24vh 14.5vw;
+    padding: 2.5vh;
+    color: #000;
+}
+
+.gallery-item2 {
+    background-image: url(images/agra2.jpg);
+}
+
+.gallery-item3 {
+    background-image: url(images/jaipur2.webp);
+}
+
+.gallery-item4 {
+    background-image: url(images/kerala.jpg);
+}
+
+.gallery-item5 {
+    background-image: url(images/delhi2.jpg);
+}
+
+.gallery-item6 {
+    background-image: url(images/mumbai.jpg);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .gallery-section {
+        height: 100vh;
+    }
+
+    .gallery-section h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 2.5rem;
+    }
+
+    .gallery {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .gallery div {
+        width: 100%;
+    }
+
+    .gallery div h1 {
+        background-color: white;
+        width: 50vw;
+    }
+}
+
+
+#main3 {
+    height: 100vh;
+}
+
+.about-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2.5em;
+    color: #00b894;
+    margin-bottom: 30px;
+}
+
+.about-container {
+    height: 80vh;
+    width: 95vw;
+    margin: auto;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 600px;
+    text-align: left;
+}
+
+.about-text h3 {
+    font-size: 2em;
+    color: #00b894;
+    margin-bottom: 10px;
+}
+
+.about-text p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 500px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.about-section {
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+#main4 {
+    height: 100vh;
+    /* border: solid red; */
+}
+
+.cultural-highlights {
+    padding: 50px;
+    background-color: #f9f9f9;
+}
+
+.cultural-highlights h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00b894;
+    margin-bottom: 30px;
+}
+
+.highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.highlight-item {
+    width: 22%;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.highlight-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.highlight-item h3 {
+    font-size: 1.3rem;
+    margin-top: 15px;
+    color: #00b894;
+}
+
+.highlight-item p {
+    text-transform: none;
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+.highlight-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+#main5 {
+    height: 140vh;
+}
+
+.tour-packages {
+    padding: 2rem;
+    text-align: center;
+}
+
+.tour-packages h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #00b894;
+}
+
+.packages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.package-item {
+    background: white;
+    border-radius: 10px;
+    flex: 1 1 calc(45% - 1rem);
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.package-item img {
+    height: 20vh;
+    width: 20vw;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.package-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #00b894;
+}
+
+.package-item p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.package-button {
+    padding: 0.5rem 1rem;
+    background: #00b894;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.package-button:hover {
+    background: #53ebcd;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: white;
+    margin: 10% auto;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #636e72;
+}
+
+.modal-content h3 {
+    margin-bottom: 1rem;
+    color: #2d3436;
+}
+
+.modal-content p {
+    font-size: 1rem;
+    color: #636e72;
+}
+
+
+#main6 {
+    height: 100vh;
+}
+
+.review-section {
+    padding: 2rem;
+    text-align: center;
+}
+
+.review-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #00b894;
+}
+
+.review-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-list {
+    width: 80%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.review-list p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+}
+
+.review-item {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.review-item h4 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin: 0 0 0.5rem;
+}
+
+.review-item p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+}
+
+
+.review-form {
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.review-form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #00b894;
+}
+
+.review-form label {
+    display: block;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.review-form input,
+.review-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.review-form .submit-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #00b894;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.review-form .submit-button:hover {
+    background-color: #53ebcd;
+}
+
+
+
+#main7 {
+    height: 110vh;
+}
+
+.contact-section {
+    padding: 2rem;
+    width: 100vw;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #00b894;
+}
+
+.contact-section p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 500px;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form label {
+    display: block;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form .submit-button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #00b894;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form .submit-button:hover {
+    background-color: #53ebcd;
+}
+
+.contact-info {
+    text-align: left;
+    max-width: 400px;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #00b894;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
